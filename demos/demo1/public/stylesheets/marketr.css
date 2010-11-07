@@ -1,0 +1,130 @@
+body {
+  text-align: center;
+  font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font-size: 12px;
+  color: #666;
+}
+div#page {
+  width: 800px;
+  margin: 0 auto;
+  padding: 50px 20px;
+  text-align: left;
+}
+
+.placeholder { color: #aaa;}
+
+section {
+  padding-left: 200px;
+}
+a {
+  color: #2468e4;
+  text-decoration: none;
+}
+a:hover {
+  color: #0447c2;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #455560;
+}
+h1 {
+  font-size: 36px;
+}
+h2 {
+  font-size: 24px;
+  margin: 20px 0 0 0;
+}
+/* sidebar */
+#symbols {
+  float: left;
+  width: 180px;
+  margin-right: 20px;
+  xborder-right: 1px solid #ccc;
+  padding-top: 10px;
+}
+#symbols ul, #symbols ul li {
+  list-style: none;
+  margin-left: 0;
+  padding-left: 0;
+}
+#symbols form {
+  margin: 0 0 20px 0;
+  padding: 0 10px 0 0 ;
+}
+#symbols form input {
+  width: 100%;
+}
+#symbols li {
+  border-bottom: 1px solid #ccc;
+  position: relative;
+  padding: 10px;
+}
+#symbols a.remove {
+  position: absolute;
+  right: 10px;
+  top: 16px;
+  font-weight: bold;
+  text-decoration: none;
+}
+#symbols a.symbol {
+  font-size: 18px;
+  font-weight: bold;
+  color: #666;
+}
+#symbols ul li {
+  -webkit-transition: background-color 0.4s ease-in-out;
+  background-color: transparent;
+}
+#symbols ul li .direction {
+  -webkit-transition: background-color 0.4s ease-in-out;
+  border: solid 1px gray;
+  border-radius: 5px;
+  position: absolute;
+  top: 15px;
+  width: 14px;
+  height: 14px;
+  background-color: transparent;
+}
+#symbols ul li a.symbol {
+  -webkit-transition: color 1s linear;
+  margin-left: 18px;
+}
+#symbols ul li.up .direction {
+  background-color: #007c26;
+}
+#symbols ul li.up a.symbol {
+  color: #007c26;
+}
+#symbols ul li.down .direction {
+  background-color: #cc0000;
+}
+#symbols ul li.down a.symbol {
+  color: #cc0000;
+}
+#symbols ul li .new-order-marker {
+  width: 10px;
+  height: 10px;
+  -webkit-transition: background-color 0.4s;
+  -webkit-transition: border-color 0.4s;
+  background-color: transparent;
+  border: 1px solid transparent;
+  position: absolute;
+  right: 25px;
+  top: 18px;
+}
+#symbols ul li .new-order-marker.set {
+  background-color: #fff000;
+  border-color: #d9c400;
+}
+/* view section */
+table {
+  width: 100%;
+}
+table td, table th {
+  border-bottom: 1px solid #ccc;
+  padding: 4px;
+}
