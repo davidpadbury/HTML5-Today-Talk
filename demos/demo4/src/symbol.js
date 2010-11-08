@@ -43,7 +43,7 @@ Symbol.prototype._scheduleNextTick = function() {
 	this._timeoutId = setTimeout(function() {
 		self._updatePrice();
 		self._scheduleNextTick();
-	}, (Math.random() * 2000)); // Schedule tick to occur in the near future
+	}, (Math.random() * 2000) + 500); // Schedule tick to occur in the near future
 };
 
 Symbol.prototype._updatePrice = function() {
