@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="/stylesheets/style.css">
+		<link rel="stylesheet" href="/stylesheets/marketr.css">
+		<title>Market</title>
+		<script src="/js/modernizr-1.6.min.js"></script>
+		<script src="/js/json2.js"></script>
+		<script src="/js/jquery-1.4.3.js"></script>
+		<script src="/js/jquery.tmpl.js"></script>
+		<script src="/js/highcharts.js"></script>
+		<script src="/js/knockout-1.1.0.debug.js"></script>
+		<script src="/socket.io/socket.io.js"></script>
+		<script src="/js/Marketr.js"></script>
+	</head>
+	<body>
+		<script type="text/html" id="symbolsList">
+			<form data-bind="submit: lookupSymbol">
+				<input type="text" placeholder="Symbol" data-bind="value:lookupText">
+			</form>
+			<ul data-bind='template: { name:"symbolItem", foreach: items }'>
+			</ul>
+		</script>
+		<script type="text/html" id="symbolItem">
+			<li data-bind="css: { up: direction() == 'up', down: direction() == 'down' }">
+				<div class="direction" />
+				<a class="symbol" href="#" data-bind="click: select">${symbol}</a>
+				<div class="price" data-bind="text: Marketr.Format.price(price())"></div>
+				<div class="new-order-marker" data-bind="css: { set: newOrder }"></div>
+				<a class="remove" href="#" data-bind="click: remove">&times;</a>
+			</li>
+		</script>
+		<script type="text/html" id="orderRow">
+			<tr>
+				<td data-bind="text:user"></td>
+				<td></td>
+				<td data-bind="text:size"></td>
+			</tr>
+		</script>
+		<div id="page">
+			<aside id="symbols" data-bind="template: 'symbolsList'">
+			</aside>
+			<section id="detail">
+				<div data-bind="visible: symbol">
+					<h1 data-bind="text: symbol"></h2>
+					<h2>Current Price</h2>
+					<div data-bind="text: Marketr.Format.price(price())"></div>
+					<h2>Price Graph</h2>
+					<div class="chart" data-bind="chart: prices"></div>
+				</div>
+			</section>
+		</div>
+		<script type="text/javascript">
+		$(document).ready(function() {
+			
+			Marketr.App.initialize();
+			
+		});
+		</script>
+	</body>
+</html>	

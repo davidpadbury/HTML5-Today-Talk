@@ -1,0 +1,17 @@
+h1 Order
+- if (errz)
+	ul
+	- errz.forEach(function(err) {
+		li= err
+	- })
+form(method="post")
+	label User Name
+	input(name="user", type="text", value= user)
+	br
+	label Symbol
+	input(name="symbol", type="text", value= symbol)
+	br
+	label Size
+	input(name="size", type="text", value= size)
+	br
+	input(type="submit")
