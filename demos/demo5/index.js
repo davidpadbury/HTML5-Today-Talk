@@ -17,7 +17,6 @@ app.configure(function(){
 	app.set('view engine', 'jade');
 	app.use(express.bodyDecoder());
 	app.use(express.methodOverride());
-	app.use(express.compiler({ src: __dirname + '/public', enable: ['less'] }));
 	app.use(app.router);
 	app.use(assetManager({
 		'app-js': {
@@ -30,6 +29,7 @@ app.configure(function(){
 			]
 		}
 	}));
+	app.use(express.compiler({ src: __dirname + '/public', enable: ['less'] }));
 	app.use(express.staticProvider(__dirname + '/public'));
 });
 
@@ -86,7 +86,8 @@ app.post('/order', function(req, res) {
 	}
 });
 
-app.listen(3000);
+app.listen(3005);
+console.log( 'listening on 3005' );
 
 function tick(symbol, price) {
 	var clientIds = tickers[symbol] ? tickers[symbol].clients : [],

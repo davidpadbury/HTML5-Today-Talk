@@ -72,35 +72,14 @@ h2 {
   font-weight: bold;
   color: #666;
 }
-#symbols ul li {
-  -webkit-transition: background-color 0.4s ease-in-out;
-  background-color: transparent;
-}
 #symbols ul li .direction {
-  -webkit-transition: background-color 0.4s ease-in-out;
-  border: solid 1px gray;
-  border-radius: 5px;
   position: absolute;
   top: 15px;
   width: 14px;
   height: 14px;
-  background-color: transparent;
 }
 #symbols ul li a.symbol {
-  -webkit-transition: color 1s linear;
   margin-left: 18px;
-}
-#symbols ul li.up .direction {
-  background-color: #007c26;
-}
-#symbols ul li.up a.symbol {
-  color: #007c26;
-}
-#symbols ul li.down .direction {
-  background-color: #cc0000;
-}
-#symbols ul li.down a.symbol {
-  color: #cc0000;
 }
 #symbols ul li .new-order-marker {
   width: 10px;

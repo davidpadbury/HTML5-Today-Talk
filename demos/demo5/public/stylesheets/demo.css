@@ -1,0 +1,16 @@
+#symbols ul li .direction {
+  border: solid 1px gray;
+  background-color: gray;
+}
+#symbols ul li.up .direction {
+  background-color: #007c26;
+}
+#symbols ul li.up a.symbol {
+  color: #007c26;
+}
+#symbols ul li.down .direction {
+  background-color: #cc0000;
+}
+#symbols ul li.down a.symbol {
+  color: #cc0000;
+}
