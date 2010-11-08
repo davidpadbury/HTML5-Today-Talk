@@ -41,18 +41,22 @@ app.configure('production', function(){
   app.use(express.errorHandler()); 
 });
 
+function getSymbols() {
+	var s = [];
+	for (var p in tickers) {
+		s.push(p);
+	}
+	return s;	
+}
+
 app.get('/order', function(req, res) {
-	var firstSymbol = (function() {
-		for (var p in tickers) {
-			return p;
-		}
-		return null;
-	})();
+	var symbols = getSymbols();
 	res.render('order', {
 		locals: {
 			errz: [],
 			user: '',
-			symbol: firstSymbol,
+			symbol: symbols[0],
+			symbols: symbols,
 			size: '100'
 		}
 	});
@@ -77,10 +81,12 @@ app.post('/order', function(req, res) {
 				errz: errz,
 				user: req.body.user,
 				symbol: req.body.symbol,
+				symbols: getSymbols(),
 				size: req.body.size
 			}
 		});
 	} else {
+		console.log('Order from ' + req.body.user + ' for ' + req.body.size + ' ' + req.body.symbol);
 		makeOrder( req.body.symbol, req.body.user, parseInt( req.body.size ));
 		res.render('ordered');
 	}

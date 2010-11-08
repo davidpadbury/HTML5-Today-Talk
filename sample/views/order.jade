@@ -9,7 +9,9 @@ form(method="post")
 	input(name="user", type="text", value= user)
 	br
 	label Symbol
-	input(name="symbol", type="text", value= symbol)
+	select(name="symbol")
+		- each s in symbols
+			option(value=s, selected: s==symbol)= s
 	br
 	label Size
 	input(name="size", type="text", value= size)
