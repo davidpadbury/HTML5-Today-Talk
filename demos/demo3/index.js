@@ -86,8 +86,8 @@ app.post('/order', function(req, res) {
 	}
 });
 
-app.listen(3005);
-console.log( 'listening on 3005' );
+app.listen(3003);
+console.log( 'listening on 3003' );
 
 function tick(symbol, price) {
 	var clientIds = tickers[symbol] ? tickers[symbol].clients : [],
