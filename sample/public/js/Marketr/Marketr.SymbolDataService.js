@@ -60,7 +60,7 @@
 		},
 		
 		_unsubscribe: function(data) {
-			this.socket.send({
+			this._send({
 				topic: 'unsubscribe-tick',
 				symbol: data.symbol
 			});
