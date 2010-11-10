@@ -7,7 +7,7 @@
 		
 	Marketr.App = {
 		initialize: function() {
-			dataService = new Marketr.SymbolDataService();
+			// dataService = new Marketr.SymbolDataService();
 			
 			symbolsListViewModel = new Marketr.SymbolsListViewModel();
 			detailViewModel = new Marketr.DetailViewModel();

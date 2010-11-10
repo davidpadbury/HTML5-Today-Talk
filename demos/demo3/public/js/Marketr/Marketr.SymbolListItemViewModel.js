@@ -13,12 +13,18 @@
 	Marketr.SymbolListItemViewModel.prototype = {
 	
 		initialize: function() {
-			Marketr.PubSub.pub( Marketr.Topics.symbolSubscribe, {
-				symbol: this.symbol
-			});
-			Marketr.PubSub.sub( Marketr.Topics.symbolSelected, this, this._symbolSelected );
-			Marketr.PubSub.sub( Marketr.Topics.symbolTick, this, this._tick );
-			Marketr.PubSub.sub( Marketr.Topics.newOrder, this, this._newOrder );
+		},
+		
+		goDown: function() {
+			this.direction( 'down' );
+		},
+		
+		goNeutral: function() {
+			this.direction('');
+		},
+		
+		goUp: function() {
+			this.direction('up');
 		},
 	
 		remove: function(e) {

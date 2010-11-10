@@ -27,9 +27,11 @@
 			<li data-bind="css: { up: direction() == 'up', down: direction() == 'down' }">
 				<div class="direction" />
 				<a class="symbol" href="#" data-bind="click: select">${symbol}</a>
-				<div class="price" data-bind="text: Marketr.Format.price(price())"></div>
-				<div class="new-order-marker" data-bind="css: { set: newOrder }"></div>
-				<a class="remove" href="#" data-bind="click: remove">&times;</a>
+				<div>
+					<input type="button" value="Down" data-bind="click: goDown" />
+					<input type="button" value="Neutral" data-bind="click: goNeutral" />
+					<input type="button" value="Up" data-bind="click: goUp" />
+				</div>
 			</li>
 		</script>
 		<script type="text/html" id="orderRow">
