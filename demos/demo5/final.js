@@ -8,7 +8,7 @@ var express = require('express'),
 	assetManager = require('connect-assetmanager'),
 	socket;
 
-app.configure(function(){
+app.configure(function(){	
 	app.use(express.compiler({ src: __dirname + '/public', enable: ['less'] }));
 	app.use(assetManager({
 		'app-js': {
@@ -28,7 +28,36 @@ app.listen(3005);
 socket = io.listen(app);
 console.log( 'Listening on 3005' );
 
+var subscriptions = {};
+
+function tick( name, price ) {
+	subscriptions[name].clients.forEach(function(client) {
+		client.send(JSON.stringify({
+			topic: 'tick',
+			symbol: name,
+			price: price
+		}));
+	});
+}
+
+function subscribe( client, name ) {
+	if (!subscriptions[name]) {
+		var symbol = createSymbol(name);
+		symbol.on('tick', tick);
+		subscriptions[name] = {
+			symbol: symbol,
+			clients: []
+		};
+	}
+	
+	subscriptions[name].clients.push(client);
+}
 
 socket.on('connection', function(client) {
 	
+	client.on('message', function(s) {
+		var data = JSON.parse(s);
+		
+		subscribe( client, data.symbol );
+	});
 });
