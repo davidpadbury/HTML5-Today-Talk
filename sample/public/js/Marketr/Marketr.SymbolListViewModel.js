@@ -17,7 +17,7 @@
 			symbol = symbol.toUpperCase();
 		
 			var itemViewModel = new Marketr.SymbolListItemViewModel( symbol );
-			$(itemViewModel).bind('remove', $.proxy(this.removeSymbol, this));
+			$(itemViewModel).bind('removing', $.proxy(this.removeSymbol, this));
 			this.items.push( itemViewModel );
 		},
 	

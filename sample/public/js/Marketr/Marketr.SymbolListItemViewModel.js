@@ -22,7 +22,7 @@
 		},
 	
 		remove: function(e) {
-			$(this).trigger('remove', this);
+			$(this).trigger('removing', this);
 			Marketr.PubSub.pub( Marketr.Topics.symbolUnsubscribe, {
 				symbol: this.symbol
 			});

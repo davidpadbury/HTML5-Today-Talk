@@ -18,6 +18,7 @@
 			Marketr.PubSub.sub( Marketr.Topics.receivedRecentData, this, this._receivedRecentData );
 			Marketr.PubSub.sub( Marketr.Topics.newOrder, this, this._newOrder );
 			Marketr.PubSub.sub( Marketr.Topics.symbolTick, this, this._tick );
+			Marketr.PubSub.sub( Marketr.Topics.symbolUnsubscribe, this, this._symbolUnsubscribe );
 		},
 		
 		_symbolSelected: function(data) {
@@ -30,6 +31,12 @@
 			Marketr.PubSub.pub( Marketr.Topics.requestRecentData, {
 				symbol: data.symbol
 			});
+		},
+		
+		_symbolUnsubscribe: function(data) {
+			if ( data.symbol === this.symbol() ) {
+				this.symbol('');
+			}
 		},
 		
 		_receivedRecentData: function(data) {
