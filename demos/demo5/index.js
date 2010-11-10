@@ -23,9 +23,9 @@ app.configure(function(){
 	app.use(express.staticProvider(__dirname + '/public'));
 });
 
-app.listen(3004);
+app.listen(3005);
 socket = io.listen(app);
-console.log( 'Listening on 3004' );
+console.log( 'Listening on 3005' );
 
 
 socket.on('connection', function(client) {
