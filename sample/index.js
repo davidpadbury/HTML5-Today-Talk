@@ -36,6 +36,7 @@ app.configure(function(){
 			debug: true,
 			files: [ 
 				'jquery-1.4.3.js',
+				'jquery.tmpl.js',
 				'*' 
 			]
 		}
