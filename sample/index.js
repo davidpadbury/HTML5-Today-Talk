@@ -28,6 +28,16 @@ app.configure(function(){
 			files: [
 				'*'
 			]
+		},
+		'lib-js': {
+			route: /\/js\/lib.js/,
+			path: './public/js/',
+			dataType: 'javascript',
+			debug: true,
+			files: [ 
+				'jquery-1.4.3.js',
+				'*' 
+			]
 		}
 	}));
 	app.use(express.staticProvider(__dirname + '/public'));
